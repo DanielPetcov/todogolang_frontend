@@ -1,31 +1,7 @@
-import { useEffect, useState } from "react";
 import Header from "./components/header";
 import TodoApp from "./todoApp";
-type Todo = {
-  id: string;
-  completed: boolean;
-  body: string;
-};
 
 function App() {
-  const [todos, setTodos] = useState<Todo[]>([]);
-
-  useEffect(() => {
-    fetchTodo();
-  }, []);
-
-  function fetchTodo() {
-    fetch("http://localhost:8080/api/todos")
-      .then((res) => res.json())
-      .then((data) => setTodos(data));
-  }
-
-  function deleteTodo(id: string) {
-    fetch(`http://localhost:8080/api/todos/${id}`, {
-      method: "DELETE",
-    }).then(() => fetchTodo());
-  }
-
   return (
     <div className="bg-sky-950 min-h-screen text-neutral-50">
       <Header />
