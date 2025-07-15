@@ -10,7 +10,7 @@ export default function TodoApp() {
   const [todos, setTodos] = useState<TodoType[]>([]);
 
   useEffect(() => {
-    fetch(`${process.env.VITE_BACKEND_URL}/api/todos`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/todos`)
       .then((res) => res.json())
       .then((data: TodoType[]) => setTodos(data));
   }, []);

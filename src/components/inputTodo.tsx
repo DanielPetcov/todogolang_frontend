@@ -29,7 +29,7 @@ export default function InputTodo({
       body: data.todo,
     };
 
-    fetch(`${process.env.VITE_BACKEND_URL}/api/todos`, {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/todos`, {
       method: "POST",
       body: JSON.stringify(body),
     })
