@@ -12,13 +12,13 @@ export default function ToDoItem({
   setTodos: React.Dispatch<SetStateAction<TodoType[]>>;
 }) {
   function deleteTodo(id: string) {
-    fetch(`${process.env.VITE_BACKEND_URL}/api/todos/${id}`, {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/todos/${id}`, {
       method: "DELETE",
     }).then(() => setTodos((prev) => prev.filter((todo) => todo.id != id)));
   }
 
   function completeTodo(id: string) {
-    fetch(`${process.env.VITE_BACKEND_URL}/api/todos/${id}`, {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/todos/${id}`, {
       method: "PUT",
     }).then(() => {
       todo.completed = true;
