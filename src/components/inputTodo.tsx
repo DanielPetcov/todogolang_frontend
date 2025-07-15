@@ -21,6 +21,7 @@ export default function InputTodo({
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
@@ -34,6 +35,8 @@ export default function InputTodo({
     })
       .then((res) => res.json())
       .then((data: TodoType) => setTodos((prev) => [...prev, data]));
+
+    reset({ todo: "" });
   };
   return (
     <>

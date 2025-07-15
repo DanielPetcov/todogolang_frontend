@@ -1,5 +1,4 @@
 import { Plus, Equal } from "lucide-react";
-
 export default function Header() {
   return (
     <div className="flex items-center gap-6 md:gap-10 justify-center border-b-2 border-b-blue-50 w-full p-5">
