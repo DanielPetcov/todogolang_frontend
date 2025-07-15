@@ -13,13 +13,13 @@ export default function ToDoItemCompleted({
   setTodos: React.Dispatch<SetStateAction<TodoType[]>>;
 }) {
   function deleteTodo(id: string) {
-    fetch(`http://localhost:8080/api/todos/${id}`, {
+    fetch(`${process.env.BACKEND_URL}/api/todos/${id}`, {
       method: "DELETE",
     }).then(() => setTodos((prev) => prev.filter((todo) => todo.id != id)));
   }
 
   function completeTodo(id: string) {
-    fetch(`http://localhost:8080/api/todos/${id}`, {
+    fetch(`${process.env.BACKEND_URL}/api/todos/${id}`, {
       method: "PUT",
     }).then(() => {
       todo.completed = false;

@@ -29,7 +29,7 @@ export default function InputTodo({
       body: data.todo,
     };
 
-    fetch("http://localhost:8080/api/todos", {
+    fetch(`${process.env.BACKEND_URL}/api/todos`, {
       method: "POST",
       body: JSON.stringify(body),
     })

@@ -10,7 +10,7 @@ export default function TodoApp() {
   const [todos, setTodos] = useState<TodoType[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/todos")
+    fetch(`${process.env.BACKEND_URL}/api/todos`)
       .then((res) => res.json())
       .then((data: TodoType[]) => setTodos(data));
   }, []);
